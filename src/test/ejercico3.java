@@ -12,9 +12,12 @@ public class ejercico3 {
         System.out.println("Escribe una frase");
         Scanner frase = new Scanner(System.in);
         String fraseConv = frase.nextLine();
-        // podemos vonvertir la frase de dos formas: 
+        
+        // podemos vonvertir la frase de dos formas:
+        
         //forma uno:
         System.out.println("minuscula: " + toLowerCase(fraseConv) + " Mayuscula: " + toUpperCase(fraseConv));
+        
         // forma dos: de esta forma no hay que importar archivos
         System.out.println(fraseConv.toLowerCase());
         System.out.println(fraseConv.toUpperCase());
