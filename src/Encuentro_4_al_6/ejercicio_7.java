@@ -26,36 +26,39 @@ public class ejercicio_7 {
         
         
         System.out.println("---------------- Dispositivo RS232 -----------------");
-        System.out.println("Escribe palabras solo con 5 letras");
         
-        String palabra, correctas = "", incorrectas = "";
+        String palabra, fde = "&&&&&";
+        int contV = 0, contF = 0;
+        boolean salir = true;
         
-        for (int i = 0; i < 4; i++) {
+        do{
             
-            Scanner leerPalabras = new Scanner(System.in);
-            palabra = leerPalabras.next();
+            System.out.println("Ingrese una secuencia");
+            System.out.println("Para salir escriba la secuencia FDE");
             
-            if(palabra.length() == 5 && palabra.substring(0, 1).equalsIgnoreCase("x") && palabra.substring(4, 5).equalsIgnoreCase("o")){
+            Scanner leerPalabra = new Scanner(System.in);
+            palabra = leerPalabra.next();
+            
+            if(palabra.equals(fde)){
                 
-                //correctas = " " + palabra + " &&&&&";
-                correctas = palabra + " &&&&&";
-            }else{
-                    
-                    incorrectas = palabra;   
+                System.out.println("Saliste del programa");
+                salir = false;
+            }
+            else if(palabra.length() <= 5 & palabra.substring(0, 1).equals("X") & palabra.substring(palabra.length() -1, palabra.length()).equals("O")){
                 
-                }
-            
-        }
+                System.out.println("SECUENCIA CORRECTA");
+                contV++;
+                
+            }
+            else{
+                System.out.println("SECUENCIA INCORRECTA");
+                contF++;
+            }
         
-        System.out.println("LISTADO DE PALABRAS:");
+        }while(salir);
         
-        System.out.println("CORECTAS:");
-        System.out.println(correctas);
-        
-        System.out.println("INCORRECTAS");
-        System.out.println(incorrectas);
-        
-        
+        System.out.println("La cantidad de palabras correctas son: " + contV);
+        System.out.println("La cantidad de palabras incorrectas son: " + contF);
     }
     
 }
