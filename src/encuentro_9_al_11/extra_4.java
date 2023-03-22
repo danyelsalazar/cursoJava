@@ -25,11 +25,12 @@ public class extra_4 {
     
     public static void main(String[] args) {
         
-        int[] alumnos = new int[10];
+        double[] alumnos = new double[5];
         
         int[] nots = new int[4];
         
-        int nota, contNota = 0, contAlum = 0, i = 0, j= 1;
+        int nota, contAlum = 0, i = 0, j= 1;
+        double contNota = 0;
         
         Scanner leerNota = new Scanner(System.in);
         
@@ -39,14 +40,40 @@ public class extra_4 {
                 System.out.println("Cual es la nota del trabajo " + (k+1) + " del alumno " +  j);
                  nota = leerNota.nextInt();
                  nots[k] = nota;
+                 contNota = contNota + nots[k];
+ 
             }
             
+            alumnos[i] = (contNota/ 4);
+            i++;
             
+            j++;
             
-  
-            
-            
-        }while(contAlum < 10);
+            contNota = 0;
+            contAlum++;
+                
+        }while(contAlum < 5);
+        
+        
+        System.out.println("--------------------------- PROMEDIOS -------------------------");
+        for (int k = 0; k < alumnos.length; k++) {
+            System.out.println("Promedio Alumno " + (k+1) + " " + alumnos[k]);
+        }
+        
+        int aprobados = 0, desaprobados = 0;
+        
+        for (int k = 0; k < alumnos.length; k++) {
+            if(alumnos[k] >= 7){
+                aprobados++;
+            }else{
+                desaprobados++;
+            }
+        }
+        
+        System.out.println("------------------------- APROBADOS - DESAPROBADOS -----------------------");
+        System.out.println("Cantidad de alumnos aprobados: " + aprobados);
+        System.out.println("Cantidad de alumnos desaprobados " + desaprobados);
+        
     }
     
 }
